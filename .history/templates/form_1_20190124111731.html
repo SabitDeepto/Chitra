@@ -1,0 +1,14 @@
+{% extends base.html %}
+<form method='POST'>{% csrf_token %}
+{{form.first_name}}
+{{form.last_name}}
+<input type='submit' value='submit'>
+</form>
+
+
+{% for message in messages %}
+    <div class="message">
+        {{ message }}
+    </div>
+{% endfor %}
+

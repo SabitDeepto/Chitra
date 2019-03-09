@@ -1,0 +1,31 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+
+{% block main %}  
+<form method='POST' class="my-ajax-form" data-url='/profile'>{% csrf_token %}
+{{form.first_name}}
+{{form.last_name}}
+<input type='submit' value='submit'>
+</form>
+
+{% for message in messages %}
+    <div class="message">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<h2>JavaScript Alert</h2>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  alert("I am an alert box!");
+}
+</script>
+
+{% endblock %}
+
+{% comment %} {% block extrajs %}
+<script  src="{% static 'js/app.js' %}"> </script>
+{% endblock %} {% endcomment %}
